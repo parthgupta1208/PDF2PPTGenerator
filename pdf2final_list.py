@@ -9,6 +9,7 @@ def process(filename):
     for i in summarized_text:
         super_summarized_text=gpt.gpt_summarise(str(i[0]))
         super_summarized_list.append(super_summarized_text)
+    print(super_summarized_list)
     final_list=[]
     for i in super_summarized_list:
         dct={}

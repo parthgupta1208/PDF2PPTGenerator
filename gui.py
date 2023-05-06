@@ -1,21 +1,20 @@
 import tkinter as tk
 from tkinter import filedialog
-import PyPDF2
-
-# Define a function to handle the file selection
-
+import pdf2final_list
 
 def select_file():
 
-    file_path = filedialog.askopenfilename(
-        initialdir='/', title='Select a file', filetypes=[('PDF files', '*.pdf')])
-
+    file_path = filedialog.askopenfilename(initialdir='/', title='Select a file', filetypes=[('PDF files', '*.pdf')])
     try:
         with open(file_path, 'rb') as file:
             print({file_path})
     except:
         print(f"Error: Invalid PDF file selected ({file_path})")
-
+    try:
+        x=pdf2final_list.process(file_path)
+        print("\n\n",x)
+    except:
+        print("rerun program")
 
 # Create a Tkinter window
 window = tk.Tk()
