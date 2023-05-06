@@ -6,8 +6,10 @@ nlp = spacy.load('en_core_web_sm')
 def top_sentences(page_text):
     summarized_pages=[]
     for i in page_text:
+        textt=""
         pattern = r'\[\d+]+'
         text = re.sub(pattern, '', i)
+        text=text.replace("\n"," ")
         # parse the text using Spacy
         doc = nlp(text)
 
@@ -20,7 +22,7 @@ def top_sentences(page_text):
 
         # print the top 5 sentences
         for i, (sentence, score) in enumerate(top_sentences):
-            text = "".join(sentence)
+            textt += "".join(sentence)
         # print(f'Top {i+1} sentence: {sentence}\nSimilarity score: {score:.2f}\n')
-            summarized_pages.append(text)
+        summarized_pages.append([textt])
     return summarized_pages
