@@ -16,12 +16,28 @@ def select_file():
     except:
         print("rerun program")
 
-# Create a Tkinter window
 window = tk.Tk()
+window.title("PDF File Selector")
+window.geometry('600x400')
+
+# Set the window to always be on top
+window.attributes('-topmost', 1)
+
+# Set the background color of the window using the configure method
+window.configure(bg='#f2f2f2')
+
+# Create a label widget
+label = tk.Label(window, text="Please select a PDF file:",
+                 bg='#f2f2f2', fg='#333333', font=('Arial', 14, 'bold'))
+label.pack(pady=10)
 
 # Create a button widget that triggers the select_file() function when clicked
-button = tk.Button(window, text='Select a file', command=select_file)
-button.pack()
+button = tk.Button(window, text='Select File', command=select_file,
+                   bg='#333333', fg='#f2f2f2', font=('Arial', 12, 'bold'), padx=10, pady=5)
+button.pack(side=tk.BOTTOM, pady=10)
+
+# Pack the label widget to fill the remaining space above the button
+label.pack(fill=tk.BOTH, expand=True)
 
 # Run the Tkinter event loop
 window.mainloop()
