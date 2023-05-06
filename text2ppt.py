@@ -4,17 +4,19 @@ from pptx.util import Inches
 # Create a new PowerPoint presentation
 prs = Presentation()
 
-# Add a new slide with a title and subtitle
+def add_slide(prs, layout, title, subtitle):
+    slide = prs.slides.add_slide(layout)
+    slide.shapes.title.text = title
+    slide.placeholders[1].text =subtitle
+    return slide
 
-slide = prs.slides.add_slide(prs.slide_layouts[1])
-title = slide.shapes.title
-subtitle = slide.placeholders[1]
 
-# Add text to the slide
-title.text = "MEOW "
-subtitle.text = '''YKEHTE HAI MEOW MEOW MEOW . 
-MEOW MEOW MEOW MEOWMEOQ WO
-mWOQ EHEHVRJFJHGHF '''
+
+title_slide_layout = prs.slide_layouts[1]
+
+slide = add_slide(prs, title_slide_layout, "Yooooo", "IF you smelllllllllllllllllllllllllllll")
+slide2 = add_slide(prs, title_slide_layout, "Meow","What the rock is cooking ")
+slide3 = add_slide(prs, title_slide_layout, "Meow1"," Then offfffffffffffffff")
 
 # Save the presentation
-prs.save("meow.pptx")
+prs.save("PPT.pptx")
