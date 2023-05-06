@@ -19,7 +19,10 @@ def select_file():
 
 window = tk.Tk()
 window.title("PDF File Selector")
-window.geometry('400x200')
+window.geometry('600x400')
+
+# Set the window to always be on top
+window.attributes('-topmost', 1)
 
 # Set the background color of the window using the configure method
 window.configure(bg='#f2f2f2')
