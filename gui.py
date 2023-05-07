@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import filedialog
 import pdf2final_list
 import text2ppt
-import tkinter.ttk as ttk
 
 
 def select_file():
@@ -14,12 +13,12 @@ def select_file():
             print({file_path})
     except:
         print(f"Error: Invalid PDF file selected ({file_path})")
-    try:
-        x = pdf2final_list.process(file_path)
-        print("\n\n", x)
-
-    except:
-        print("rerun program")
+    # try:
+    x = pdf2final_list.process(file_path)
+    print("\n\n", x)
+    text2ppt.presentate(x)
+    # except:
+    #     print("rerun program")
 
 
 window = tk.Tk()
