@@ -3,20 +3,23 @@ from tkinter import filedialog
 import pdf2final_list
 import text2ppt
 
+
 def select_file():
 
-    file_path = filedialog.askopenfilename(initialdir='/', title='Select a file', filetypes=[('PDF files', '*.pdf')])
+    file_path = filedialog.askopenfilename(
+        initialdir='/', title='Select a file', filetypes=[('PDF files', '*.pdf')])
     try:
         with open(file_path, 'rb') as file:
             print({file_path})
     except:
         print(f"Error: Invalid PDF file selected ({file_path})")
     # try:
-    x=pdf2final_list.process(file_path)
-    print("\n\n",x)
+    x = pdf2final_list.process(file_path)
+    print("\n\n", x)
     text2ppt.presentate(x)
     # except:
     #     print("rerun program")
+
 
 window = tk.Tk()
 window.title("PDF File Selector")
