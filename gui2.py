@@ -1,31 +1,33 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
-import pdf2final_list
-import text2ppt
+import os
+import tkinter.ttk as ttk
+
+# Define a function to handle the file selection
 
 
 def select_file():
-
+    # Use the filedialog.askopenfilename() method to open a file dialog
     file_path = filedialog.askopenfilename(
         initialdir='/', title='Select a file', filetypes=[('PDF files', '*.pdf')])
+    # Open the selected PDF file using PyPDF2 to check if it is a valid PDF file
     try:
         with open(file_path, 'rb') as file:
-            print({file_path})
+            print("{file_path}")
+            messagebox.showinfo("taskbar", "your presentation is ready")
+            file_path = filedialog.asksaveasfilename(defaultextension='.pptx',
+                                                     filetypes=[('PowerPoint files', '*.pptx'),
+                                                                ('All files', '*.*')])
+        print(file_path)
+
+        if file_path:
+            os.system("START {file_path}")
     except:
         print(f"Error: Invalid PDF file selected ({file_path})")
-    try:
-        x = pdf2final_list.process(file_path)
-        print("\n\n", x)
-        text2ppt.presentate(x)
-        messagebox.showinfo("Task Info", "your presentation is ready")
-        file_path = filedialog.asksaveasfilename(defaultextension='.pptx',
-                                                 filetypes=[('PowerPoint files', '*.pptx'),
-                                                            ('All files', '*.*')])
-    except ValueError as e:
-        messagebox.showerror("ERROR", e)
 
 
+# Create a Tkinter window
 window = tk.Tk()
 window.title("PDF File Selector")
 window.geometry('600x400')
