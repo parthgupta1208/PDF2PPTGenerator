@@ -43,7 +43,10 @@ def presentate(defined_list):
 
     for i in range (0,len(defined_list)):
         slide = add_slide(prs, title_slide_layout, defined_list[i]["Topic"],"\n".join(defined_list[i]["Summary"]))
-        slide2 = add_slide_img(prs,title_slide_layimg,"images/"+addphoto.get_images(defined_list[i]["Topic"],1)[0])
+        try:
+            slide2 = add_slide_img(prs,title_slide_layimg,"images/"+addphoto.get_images(defined_list[i]["Topic"],2)[0])
+        except:
+            slide2 = add_slide_img(prs,title_slide_layimg,"images/"+addphoto.get_images(defined_list[i]["Topic"],2)[1])
         addphoto.empty_images()
 
     # Save the presentation
