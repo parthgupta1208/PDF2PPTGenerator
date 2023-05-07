@@ -1,4 +1,6 @@
 blank lines remove
 better gui
-bullet or num remove
-better look and feel 
+better look and feel
+figure out ppt for presentation
+photo
+three pages
