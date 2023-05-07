@@ -27,10 +27,10 @@ def presentate(defined_list):
     def add_slide_img(prs, layout, img_path):
         slide = prs.slides.add_slide(layout)
         img_path =  ""+img_path
-        left =  Inches(2)
-        top = Inches(1)
-        width = Inches(5)
-        height = Inches(5)
+        left =  Inches(1.10)
+        top = Inches(0.7)
+        width = Inches(8)
+        height = Inches(6)
         pic = slide.shapes.add_picture(img_path, left, top, width, height)
         
     title_slide_layout = prs.slide_layouts[1]
