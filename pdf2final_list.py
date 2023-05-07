@@ -9,7 +9,7 @@ def process(filename):
     count=0
     for i in summarized_text:
         count+=1
-        if count>=3:
+        if count>3:
             break
         super_summarized_text=gpt.gpt_summarise(str(i[0]))
         super_summarized_list.append(super_summarized_text)
