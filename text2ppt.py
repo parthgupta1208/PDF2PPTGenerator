@@ -2,6 +2,7 @@ from pptx import Presentation
 from pptx.util import Inches,Pt
 from pptx.enum.text import MSO_ANCHOR, MSO_AUTO_SIZE
 import addphoto
+import re
 #Create a new PowerPoint presentation
 
 def presentate(defined_list):
@@ -36,6 +37,9 @@ def presentate(defined_list):
         
     title_slide_layout = prs.slide_layouts[1]
     title_slide_layimg=prs.slide_layouts[6]
+
+    for d in defined_list:
+        d["Summary"] = [re.sub(r'\d+\.\s+', '', item).strip() for item in d["Summary"] if re.sub(r'\d+\.\s+', '', item).strip()]
 
     for i in range (0,len(defined_list)):
         slide = add_slide(prs, title_slide_layout, defined_list[i]["Topic"],"\n".join(defined_list[i]["Summary"]))
