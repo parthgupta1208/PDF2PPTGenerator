@@ -2,6 +2,10 @@
 
 PDF2PPT Generator is a Python tool that converts PDF files to PowerPoint presentations. For each page of the PDF, it uses Spacy's sentence rank algorithm to summarize the page and generates bullet points and a topic name using the GPT-3.5-turbo model. It then extracts related images using the Google Image Search API and creates slides in the PowerPoint presentation. The resulting PowerPoint presentation contains two slides for each page of the PDF: one containing the topic name and bullet points, and the other containing a related image.
 
+# Demo Video
+
+https://user-images.githubusercontent.com/114602309/236706605-ef1720c7-7f11-4cef-825e-b5f44b84a1fd.mp4
+
 ## Requirements
 
 To use PDF2PPT Generator, you will need the following:
