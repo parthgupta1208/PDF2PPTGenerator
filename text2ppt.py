@@ -15,7 +15,7 @@ def presentate(defined_list):
         tf.text = subtitle
         textbox.left = Inches(1)
         textbox.top = Inches(2)
-        textbox.width = Inches(6)
+        textbox.width = Inches(10)
         textbox.height = Inches(2)
         font = slide.shapes.title.text_frame.paragraphs[0].font
         font.name = 'Arial'
