@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 import pdf2final_list
+import text2ppt
 
 
 def select_file():

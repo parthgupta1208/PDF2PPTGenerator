@@ -1,0 +1,4 @@
+blank lines remove
+better gui
+bullet or num remove
+better look and feel 
