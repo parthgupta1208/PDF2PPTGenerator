@@ -2,19 +2,22 @@ import tkinter as tk
 from tkinter import filedialog
 import pdf2final_list
 
+
 def select_file():
 
-    file_path = filedialog.askopenfilename(initialdir='/', title='Select a file', filetypes=[('PDF files', '*.pdf')])
+    file_path = filedialog.askopenfilename(
+        initialdir='/', title='Select a file', filetypes=[('PDF files', '*.pdf')])
     try:
         with open(file_path, 'rb') as file:
             print({file_path})
     except:
         print(f"Error: Invalid PDF file selected ({file_path})")
     try:
-        x=pdf2final_list.process(file_path)
-        print("\n\n",x)
+        x = pdf2final_list.process(file_path)
+        print("\n\n", x)
     except:
         print("rerun program")
+
 
 window = tk.Tk()
 window.title("PDF File Selector")
@@ -39,5 +42,5 @@ button.pack(side=tk.BOTTOM, pady=10)
 # Pack the label widget to fill the remaining space above the button
 label.pack(fill=tk.BOTH, expand=True)
 
-# Run the Tkinter event loop
+
 window.mainloop()
