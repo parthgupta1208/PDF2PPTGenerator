@@ -20,7 +20,7 @@ def presentate(defined_list):
         for x in  slide.placeholders[1].text_frame.paragraphs:
             font1= x.font
             font1.name = 'Arial'
-            font1.size = Pt(16)
+            font1.size = Pt(20)
             font1.bold = False
             font1.italic = False
         return slide
